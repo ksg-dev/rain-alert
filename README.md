@@ -1,0 +1,1 @@
+create rain alert app using openweather api and send sms alert to user if going to rain
