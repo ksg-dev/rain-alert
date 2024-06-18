@@ -1,14 +1,14 @@
 import requests
-# import os
+import os
 from twilio.rest import Client
 
 # Open Weather Map
 OWM_EndPoint = "https://api.openweathermap.org/data/2.5/forecast"
-api_key = "856b43ff1555aead490c92cbf0d86355"
+api_key = os.environ.get("OWM_API_KEY")
 
 # Twilio
 account_sid = "AC753e79b3830c4a1cf58b84b208cdffdf"
-auth_token = "60e0b82bd863eba2c8b17ab3b7ece7c5"
+auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
 MY_LAT = 30.673290
 MY_LONG = -88.111153
