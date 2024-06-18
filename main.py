@@ -1,7 +1,14 @@
 import requests
+from twilio.rest import Client
 
+# Open Weather Map
 OWM_EndPoint = "https://api.openweathermap.org/data/2.5/forecast"
 api_key = "856b43ff1555aead490c92cbf0d86355"
+
+# Twilio
+account_sid = "AC753e79b3830c4a1cf58b84b208cdffdf"
+auth_token = "60e0b82bd863eba2c8b17ab3b7ece7c5"
+
 MY_LAT = 30.673290
 MY_LONG = -88.111153
 
@@ -33,6 +40,12 @@ for code in weather_codes:
         will_rain = True
 
 if will_rain:
-    print("Bring an umbrella")
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+        body="Bring an umbrella!",
+        from_="whatsapp:+14155238886",
+        to="whatsapp:+13344078777"
+    )
+    print(message.status)
 
-# print(data)
+
