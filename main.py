@@ -1,4 +1,5 @@
 import requests
+# import os
 from twilio.rest import Client
 
 # Open Weather Map
@@ -32,7 +33,7 @@ weather_desc = data["list"][0]["weather"][0]["description"]
 # print(weather_id)
 # print(weather_desc)
 
-print(f"weather codes: {weather_codes}")
+# print(f"weather codes: {weather_codes}")
 
 will_rain = False
 for code in weather_codes:
@@ -47,5 +48,6 @@ if will_rain:
         to="whatsapp:+13344078777"
     )
     print(message.status)
+    print(message.sid)
 
 
