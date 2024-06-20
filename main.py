@@ -7,7 +7,7 @@ OWM_EndPoint = "https://api.openweathermap.org/data/2.5/forecast"
 api_key = os.environ.get("OWM_API_KEY")
 
 # Twilio
-account_sid = "AC753e79b3830c4a1cf58b84b208cdffdf"
+account_sid = ""
 auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
 MY_LAT = 30.673290
@@ -44,8 +44,8 @@ if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="Bring an umbrella!",
-        from_="whatsapp:+14155238886",
-        to="whatsapp:+13344078777"
+        from_="whatsapp:+{number}",
+        to="whatsapp:+{number}"
     )
     print(message.status)
     print(message.sid)
